@@ -14,11 +14,36 @@
 			<div class="title">Last Name:</div>
 			<TextEntry class="text-entry" Placeholder="Input.."/>
 		</div>
+
+		<div class="text-entry-container">
+			<div class="title">Age:</div>
+			<TextEntry class="text-entry" Placeholder="Input.."/>
+		</div>
+
+		<div class="text-entry-container">
+			<div class="title">Gender:</div>
+			<DropDown class="text-entry" Options="@genderOptions" ValueChanged="@OnGenderChanged"/>
+		</div>
+
 	</div>
 </root>
 
 @code
 {
+    public List<Option> genderOptions = new List<Option>
+    {
+        new Option( "Male", "male" ),
+        new Option( "Female", "female" ),
+        new Option( "Other", "other" )
+    };
+	private string selectedGender = "male";
+
+    private void OnGenderChanged(string value)
+    {
+        selectedGender = value;
+        Log.Info($"Gender selected: {selectedGender}");
+    }
+
     protected override void OnAwake()
     {
         Mouse.Visibility = MouseVisibility.Visible;
