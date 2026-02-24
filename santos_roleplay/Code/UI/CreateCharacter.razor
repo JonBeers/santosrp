@@ -1,0 +1,26 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="left-panel">
+		<div class="text-entry-container">
+			<div class="title">First Name:</div>
+			<TextEntry class="text-entry" Placeholder="Input.."/>
+		</div>
+
+		<div class="text-entry-container">
+			<div class="title">Last Name:</div>
+			<TextEntry class="text-entry" Placeholder="Input.."/>
+		</div>
+	</div>
+</root>
+
+@code
+{
+    protected override void OnAwake()
+    {
+        Mouse.Visibility = MouseVisibility.Visible;
+    }
+}

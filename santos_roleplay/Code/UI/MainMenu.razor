@@ -1,0 +1,40 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	@switch (currentScreen)
+	{
+		case Screen.MainMenu:
+			<div class="menu-btns">
+				<img src="images/logo.png" alt="logo" />
+				<button @onclick="@(() => currentScreen = Screen.CreateCharacter)">Create Character</button>
+				<button>Load Character</button>
+				<button>Exit</button>
+			</div>
+		break;
+
+		case Screen.CreateCharacter:
+			Game.ActiveScene.LoadFromFile("scenes/create-character.scene");
+		break;
+	}
+</root>
+
+@code
+{
+    private Screen currentScreen = Screen.MainMenu;
+
+
+    public enum Screen
+    {
+        MainMenu,
+        LoadCharacter,
+        CreateCharacter,
+    }
+
+    protected override void OnAwake()
+    {
+        Mouse.Visibility = MouseVisibility.Visible;
+    }
+}
