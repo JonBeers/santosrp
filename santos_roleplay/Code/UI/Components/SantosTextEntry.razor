@@ -1,0 +1,37 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel;
+@namespace Sandbox
+
+<root>
+	<div class="text-entry">
+		<span>@Title</span>
+		<TextEntry 
+			@ref="InnerTextEntry"
+			class="entry"
+		/>
+	</div>
+</root>
+
+@code
+{
+    [Property] public string Title { get; set; }
+
+    public TextEntry InnerTextEntry { get; set; }
+
+    [Property]
+    public string Placeholder
+    {
+        get => InnerTextEntry?.Placeholder;
+        set { if (InnerTextEntry != null) InnerTextEntry.Placeholder = value; }
+    }
+
+    [Property]
+    public string Text
+    {
+        get => InnerTextEntry?.Text;
+        set { if (InnerTextEntry != null) InnerTextEntry.Text = value; }
+    }
+
+    // Add more delegated properties as needed
+}

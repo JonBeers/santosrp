@@ -1,0 +1,29 @@
+@import "UI/globals.scss";
+
+.text-entry
+{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 1rem;
+  padding: 1rem;
+  font-family: Poppins;
+  
+  span
+  {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    padding-left: .3rem;
+  }
+
+  .entry
+  {
+    background-color: $bg-dark-200;
+    padding: 1rem;
+    border-radius: .5rem;
+    min-width: 300px;
+  }
+}

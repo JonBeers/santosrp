@@ -1,0 +1,47 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel;
+@namespace Sandbox
+
+<root>
+	<div class="slider-control">
+		<span>@Title</span>
+    <div class="container">
+      <SliderControl 
+        @ref="InnerSliderEntry"
+        class="slider"
+        Step="@(1)"
+      />
+    </div>
+	</div>
+</root>
+
+@code
+{
+  [Property] public string Title;
+
+  public SliderControl InnerSliderEntry {get; set;}
+  
+  private float _min;
+  [Property] public float Min
+  {
+    get => _min;
+    set
+    {
+      _min = value;
+      if (InnerSliderEntry?.Min != null) InnerSliderEntry.Min = value;
+    }
+  }
+
+  private float _max;
+  [Property] public float Max
+  {
+    get => _max;
+    set
+    {
+      _max = value;
+      if (InnerSliderEntry?.Max != null) InnerSliderEntry.Max = value;
+    }
+  }
+
+}

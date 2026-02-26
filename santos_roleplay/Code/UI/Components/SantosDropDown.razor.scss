@@ -1,0 +1,31 @@
+@import "UI/globals.scss";
+
+.dropdown-entry
+{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 1rem;
+  padding: 1rem;
+  font-family: Poppins;
+}
+
+span
+{
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .3rem;
+  padding-left: .3rem;
+}
+
+.dropdown
+{
+  color: white;
+  min-width: 300px;
+  padding: 1rem;
+  background-color: $bg-dark-200;
+  border-radius: .5rem;
+
+}

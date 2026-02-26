@@ -1,0 +1,60 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel;
+@namespace Sandbox
+@using System;
+
+<root>
+  <div class="dropdown-entry">
+    <span>@Title</span>
+    <DropDown 
+      @ref="DropdownEntry"
+      class="dropdown"
+      
+    />
+  </div>
+</root>
+
+@code
+{
+  [Property] public string Title { get; set; }
+
+  public DropDown DropdownEntry { get; set; }
+
+  private List<Option> _options;
+
+  [Property]
+  public List<Option> Options 
+  {
+    get => _options;
+    set 
+    { 
+      _options = value;
+      if (DropdownEntry != null) 
+        DropdownEntry.Options = value; 
+    }
+  }
+
+  private Action<string> _valueChanged;
+
+  [Property] 
+  public Action<string> ValueChanged 
+  {
+    get => _valueChanged;
+    set 
+    { 
+      _valueChanged = value;
+      if (DropdownEntry != null) 
+        DropdownEntry.ValueChanged = value; 
+    }
+  }
+
+  protected override void OnAfterTreeRender(bool firstTime)
+  {
+    if (firstTime && DropdownEntry != null)
+    {
+      if (_options != null) DropdownEntry.Options = _options;
+      if (_valueChanged != null) DropdownEntry.ValueChanged = _valueChanged;
+    }
+  }
+}

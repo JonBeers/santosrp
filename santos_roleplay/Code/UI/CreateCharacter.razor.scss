@@ -22,35 +22,6 @@ CreateCharacter
 		gap: 2rem;
 		justify-content: center;
 		padding-left: 20rem;
-
-	
-	}
-
-	.text-entry-container
-	{
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		font-family: Poppins;
-
-		.title
-		{
-			color: white;
-			font-weight: bold;
-			font-size: 18px;
-			letter-spacing: .3rem;
-			padding-left: .4rem;
-		}
-
-		.text-entry
-		{
-			color: white;
-			background-color: $bg-dark-200;
-			border-radius: .5rem;
-			font-size: 16px;
-			max-width: 300px;
-			padding: 1rem;
-		}
 	}
 
 	

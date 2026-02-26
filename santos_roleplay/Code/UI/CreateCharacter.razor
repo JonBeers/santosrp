@@ -5,47 +5,35 @@
 
 <root>
 	<div class="left-panel">
-		<div class="text-entry-container">
-			<div class="title">First Name:</div>
-			<TextEntry class="text-entry" Placeholder="Input.."/>
-		</div>
-
-		<div class="text-entry-container">
-			<div class="title">Last Name:</div>
-			<TextEntry class="text-entry" Placeholder="Input.."/>
-		</div>
-
-		<div class="text-entry-container">
-			<div class="title">Age:</div>
-			<TextEntry class="text-entry" Placeholder="Input.."/>
-		</div>
-
-		<div class="text-entry-container">
-			<div class="title">Gender:</div>
-			<DropDown class="text-entry" Options="@genderOptions" ValueChanged="@OnGenderChanged"/>
-		</div>
-
+		<SantosTextEntry Title="First Name:" @ref="FirstNameEntry"/>
+		<SantosTextEntry Title="Last Name:" @ref="LastNameEntry"/>
+		<SantosSlider Title="Age:" Min="@(18)" Max="@(100)" />
+		<SantosDropDown Title="Gender:" Options="@GenderOptions" @ref="GenderDropdown" ValueChanged="@OnGenderChanged"/>
 	</div>
 </root>
 
 @code
 {
-    public List<Option> genderOptions = new List<Option>
-    {
-        new Option( "Male", "male" ),
-        new Option( "Female", "female" ),
-        new Option( "Other", "other" )
-    };
+
 	private string selectedGender = "male";
+	private SantosTextEntry FirstNameEntry;
+	private SantosTextEntry LastNameEntry;
+	private SantosDropDown GenderDropdown; // separate ref variable
+	private List<Option> GenderOptions = new List<Option>
+	{
+			new Option( "Male", "male" ),
+			new Option( "Female", "female" ),
+			new Option( "Other", "other" )
+	};
 
-    private void OnGenderChanged(string value)
-    {
-        selectedGender = value;
-        Log.Info($"Gender selected: {selectedGender}");
-    }
+	private void OnGenderChanged(string value)
+	{
+			selectedGender = value;
+			Log.Info($"Gender selected: {selectedGender}");
+	}
 
-    protected override void OnAwake()
-    {
-        Mouse.Visibility = MouseVisibility.Visible;
-    }
+	protected override void OnAwake()
+	{
+			Mouse.Visibility = MouseVisibility.Visible;
+	}
 }
