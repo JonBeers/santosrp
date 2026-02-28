@@ -1,0 +1,18 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@inherits Panel;
+@namespace Sandbox
+
+<root>
+  <Button class="button" style="color: @Color; background-color: @ColorBg;" onclick="@OnClick">@Text</Button>
+</root>
+
+@code
+{
+  [Property] public string Text;
+  [Property] public string Color = "white";
+  [Property] public string ColorBg = "black";
+
+  [Property] public Action OnClick { get; set; }
+}

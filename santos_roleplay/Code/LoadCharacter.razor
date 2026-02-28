@@ -1,0 +1,25 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+
+    @* Eventually were gonna want to implement something if we have more then 1 character *@
+
+    @foreach (var character in characters)
+    {
+        <span class="name">@character.FirstName @character.LastName</span>
+    }
+</root>
+
+@code
+{
+    private List<PlayerData> characters = new();
+    
+    protected override void OnAwake()
+    {  
+        // Load the players characters
+        characters = PlayerData.Load(Game.SteamId);
+    }
+}

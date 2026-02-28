@@ -8,6 +8,7 @@
   gap: 1rem;
   padding: 1rem;
   font-family: Poppins;
+  min-width: 500px;
 }
 
 span
@@ -23,9 +24,10 @@ span
 .dropdown
 {
   color: white;
-  min-width: 300px;
+
   padding: 1rem;
-  background-color: $bg-dark-200;
+  background-color: transparent;
+  border: 1px solid white;
   border-radius: .5rem;
 
 }

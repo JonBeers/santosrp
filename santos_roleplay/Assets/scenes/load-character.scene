@@ -97,7 +97,7 @@
       ],
       "Children": [
         {
-          "__guid": "43f60720-1ac3-41ae-af8d-789b927c02ce",
+          "__guid": "e6ea4b2f-7176-40f3-979e-0fe5461a9801",
           "__version": 2,
           "Flags": 0,
           "Name": "Clothing - tshirt",
@@ -114,7 +114,7 @@
           "Components": [
             {
               "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "7be80756-2229-4054-971c-1312b1718b2e",
+              "__guid": "cceb1687-4577-455e-8558-4a6d5e2787a4",
               "__enabled": true,
               "Flags": 0,
               "AnimationGraph": null,
@@ -166,7 +166,7 @@
           "Children": []
         },
         {
-          "__guid": "f54fd3b5-2a57-4f39-835c-c59f59437b1e",
+          "__guid": "9678a857-a4c6-4dcf-bb59-27a26a31d947",
           "__version": 2,
           "Flags": 0,
           "Name": "Clothing - loose_jeans",
@@ -183,7 +183,7 @@
           "Components": [
             {
               "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "f407c33c-1496-403f-b296-4d219bbb054d",
+              "__guid": "8d4e76c3-4454-4438-b1e6-ca293f559f50",
               "__enabled": true,
               "Flags": 0,
               "AnimationGraph": null,
@@ -334,24 +334,6 @@
               "ScaleStrategy": "ConsistentHeight",
               "TargetCamera": null,
               "ZIndex": 100
-            },
-            {
-              "__type": "Sandbox.CreateCharacter",
-              "__guid": "f01a6a36-99f3-4095-85ae-848d49280d45",
-              "__enabled": true,
-              "Flags": 0,
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "skinnedModelRenderer": {
-                "_type": "component",
-                "component_id": "6d8caa63-96a8-499f-9119-1035ce08cd2e",
-                "go": "fe792a4a-68de-4fbf-8d5a-8bfe2cdb45d2",
-                "component_type": "SkinnedModelRenderer"
-              }
             }
           ],
           "Children": []

@@ -3,26 +3,85 @@
 CreateCharacter
 {
 	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	top: 0%;
+	left: 0%;
+	right: 0%;
+	bottom: 0%;
 	pointer-events: all;
+	display: flex;
+	flex-direction: column;
+	color: white;
 
-	.left-panel
+	.nav
 	{
-		position: absolute;
-		left: 0;
-		top: 0;
-		border: 1px solid red;
+		padding-left: 3rem;
+		width: 100%;
+		height: 12%;
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		gap: 2rem;
+		// border: 1px solid red;
+
+		.button
+		{
+			color: rgb(139, 139, 139);
+			font-family: Poppins;
+			font-size: 35px;
+		}
+
+	.active
+	{
+		color: white;
+		border-bottom: 1px solid $accent-color;
+	}
+
+	}
+
+
+
+	.panel
+	{
+		position: relative;
+		left: 0%;
+		top: 0%;
+		// border: 1px solid red;
 		width: 40%;
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
 		justify-content: center;
-		padding-left: 20rem;
+		align-items: center;
+		
 	}
 
+	.identity
+	{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 70%;
+		font-family: Poppins;
+		// border: 1px solid blue;
+
+		.next-btn
+		{
+			padding: 1rem;
+			border-bottom: 1px solid white;
+			// border-radius: .5rem;
+			width: 100px;
+			justify-content: center;
+			cursor: pointer;
+			font-weight: 500;
+			text-transform: uppercase;
+			font-size: 18px;
+
+
+			&::hover
+			{
+				border-bottom: 1px solid $accent-color;
+			}
+		}
+	}
 	
 }

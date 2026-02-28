@@ -1,14 +1,14 @@
 @import "UI/globals.scss";
 
-.slider-control
+.text-entry
 {
   display: flex;
   flex-direction: column;
   color: white;
   gap: 1rem;
   padding: 1rem;
-  font-family: Poppins;
   min-width: 500px;
+  font-family: Poppins;
   
   span
   {
@@ -20,17 +20,13 @@
     padding-left: .3rem;
   }
 
-  .container
+  .entry
   {
     background-color: transparent;
     padding: 1rem;
-    // border-bottom: 1px solid white;
-    // border-radius: .5rem;
-  }
-
-  .slider
-  {
     border-radius: .5rem;
 
+    border: 1px solid white;
   }
 }
+

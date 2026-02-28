@@ -1,0 +1,31 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@inherits Panel;
+@namespace Sandbox
+
+<root>
+	<div class="text-entry">
+		<span>@Title</span>
+		<NumberEntry 
+			@ref="InnerNumEntry"
+			class="entry"
+		/>
+	</div>
+</root>
+
+@code
+{
+  [Property] public string Title { get; set; }
+  
+  public NumberEntry InnerNumEntry {get; set;}
+
+  [Property] public string Value
+  {
+    get => InnerNumEntry.Value;
+    set
+    {
+      if (InnerNumEntry != null) InnerNumEntry.Value = value;
+    }
+  }
+}

@@ -5,15 +5,16 @@
   display: flex;
   flex-direction: column;
   color: white;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1rem;
+  min-width: 500px;
   font-family: Poppins;
   
   span
   {
     font-family: Poppins;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .3rem;
     padding-left: .3rem;
@@ -21,9 +22,11 @@
 
   .entry
   {
-    background-color: $bg-dark-200;
+    background-color: transparent;
     padding: 1rem;
     border-radius: .5rem;
-    min-width: 300px;
+
+    border: 1px solid white;
   }
 }
+

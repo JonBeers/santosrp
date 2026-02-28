@@ -4,36 +4,105 @@
 @namespace Sandbox
 
 <root>
-	<div class="left-panel">
-		<SantosTextEntry Title="First Name:" @ref="FirstNameEntry"/>
-		<SantosTextEntry Title="Last Name:" @ref="LastNameEntry"/>
-		<SantosSlider Title="Age:" Min="@(18)" Max="@(100)" />
-		<SantosDropDown Title="Gender:" Options="@GenderOptions" @ref="GenderDropdown" ValueChanged="@OnGenderChanged"/>
+	
+	<div class="nav">
+		<div class="button" @ref="navIdentity">IDENTITY</div>
+		<div class="button" @ref="navAppearance">APPEARANCE</div>
+		<div class="button">SKILLS</div>
+		<div class="button">SHOP</div>
 	</div>
+
+	<div class="panel">
+		@switch (currentScreen)
+		{
+			case Screen.Identity:
+			<div class="identity">
+				<SantosTextEntry Title="First Name:" @ref="FirstNameEntry" />
+				<SantosTextEntry Title="Last Name:" @ref="LastNameEntry" />
+				<SantosDropDown Title="Gender" Options="@GenderOptions" @ref="GenderDropdown"/>
+				<SantosNumEntry Title="Age:" @ref="AgeEntry" />
+				<button class="next-btn" @onclick="@SaveCharacter">Next</button>
+			</div>
+			break;
+
+			case Screen.Appearance:
+                // For now we will just finish creating the character.
+                Game.ActiveScene.LoadFromFile("scenes/menu.scene");
+			break;
+		}
+	</div>
+
 </root>
 
 @code
 {
 
-	private string selectedGender = "male";
-	private SantosTextEntry FirstNameEntry;
-	private SantosTextEntry LastNameEntry;
-	private SantosDropDown GenderDropdown; // separate ref variable
-	private List<Option> GenderOptions = new List<Option>
-	{
-			new Option( "Male", "male" ),
-			new Option( "Female", "female" ),
-			new Option( "Other", "other" )
-	};
+    private Screen currentScreen = Screen.Identity;
+    public enum Screen
+    {
+        Identity,
+        Appearance,
+        Skills,
+        Shop,
+    }
+
+    [Property] public SkinnedModelRenderer skinnedModelRenderer {get; set;}
+    private List<PlayerData> characters = new();
+    private string selectedGender = "male";
+    private SantosTextEntry FirstNameEntry;
+    private SantosTextEntry LastNameEntry;
+    private SantosNumEntry AgeEntry {get; set;}
+    private SantosDropDown GenderDropdown; // separate ref variable
+    private List<Option> GenderOptions = new List<Option>
+    {
+        new Option( "Male", "male" ),
+        new Option( "Female", "female" ),
+    };
+
+    private Panel navIdentity;
+    private Panel navAppearance;
+
+
+    protected override void OnUpdate()
+    {
+        navIdentity.SetClass("active", currentScreen == Screen.Identity);
+        navAppearance.SetClass("active", currentScreen == Screen.Appearance);
+    }
+
 
 	private void OnGenderChanged(string value)
 	{
-			selectedGender = value;
-			Log.Info($"Gender selected: {selectedGender}");
+		selectedGender = value;
+
+		if (selectedGender == "male") skinnedModelRenderer.Model = Model.Load("models/citizen_human/citizen_human_male.vmdl");
+		else if (selectedGender == "female") skinnedModelRenderer.Model = Model.Load("models/citizen_human/citizen_human_female.vmdl");
+		Log.Info($"Gender selected: {selectedGender}");
 	}
 
 	protected override void OnAwake()
 	{
-			Mouse.Visibility = MouseVisibility.Visible;
+		Mouse.Visibility = MouseVisibility.Visible;
+	}
+
+	private void SaveCharacter()
+	{
+		if (string.IsNullOrWhiteSpace(FirstNameEntry.Text) || string.IsNullOrWhiteSpace(LastNameEntry.Text) || selectedGender == null) 
+		{ 
+			Log.Info("Fill out all fields");
+			return;
+		}
+
+		characters.Add(new PlayerData
+		{
+			FirstName = FirstNameEntry.Text,
+			LastName = LastNameEntry.Text,
+			Gender = selectedGender.ToString(),
+			Age = float.Parse(AgeEntry.Value)
+		});
+
+		PlayerData.Save(characters, Game.SteamId);
+		currentScreen = Screen.Appearance;
+		
+
 	}
 }
