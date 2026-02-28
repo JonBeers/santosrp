@@ -82,11 +82,17 @@
 	protected override void OnAwake()
 	{
 		Mouse.Visibility = MouseVisibility.Visible;
-		characters = PlayerData.Load(Game.SteamId);
+		characters = PlayerData.Load(Game.SteamId) ?? new();
 	}
 
 	private void SaveCharacter()
 	{
+		Log.Info( $"FirstNameEntry: {FirstNameEntry != null}" );
+    Log.Info( $"LastNameEntry: {LastNameEntry != null}" );
+    Log.Info( $"AgeEntry: {AgeEntry != null}" );
+    Log.Info( $"characters: {characters != null}" );
+    Log.Info( $"selectedGender: {selectedGender}" );
+		
 		if (string.IsNullOrWhiteSpace(FirstNameEntry.Text) || string.IsNullOrWhiteSpace(LastNameEntry.Text) || selectedGender == null) 
 		{ 
 			Log.Info("Fill out all fields");

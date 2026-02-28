@@ -6,7 +6,6 @@
 <root>
     @foreach (var character in characters)
     {
-        
         <span class="name">@character.FirstName @character.LastName</span>
         <button @onclick="@(() => LaunchCharacter(character))">Connect</button>
     }
@@ -17,6 +16,7 @@
     private List<PlayerData> characters = new();
     private PlayerData selectedCharacter {get; set;}
     public PlayerInfo playerInfo {get; set;}
+
 
     
     protected override void OnAwake()
