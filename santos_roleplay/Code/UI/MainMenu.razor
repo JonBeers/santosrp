@@ -10,7 +10,7 @@
 			<div class="menu-btns">
 				<img src="images/logo.png" alt="logo" />
 				<button @onclick="@(() => currentScreen = Screen.CreateCharacter)">Create Character</button>
-				<button>Load Character</button>
+				<button @onclick="@(() => currentScreen = Screen.LoadCharacter)">Load Character</button>
 				<button>Exit</button>
 			</div>
 		break;
@@ -19,9 +19,9 @@
 			Game.ActiveScene.LoadFromFile("scenes/create-character.scene");
 		break;
 
-    case Screen.LoadCharacter:
-    
-    break;
+        case Screen.LoadCharacter:
+            Game.ActiveScene.LoadFromFile("scenes/load-character.scene");
+        break;
 	}
 </root>
 

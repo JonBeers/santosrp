@@ -4,22 +4,41 @@
 @namespace Sandbox
 
 <root>
-
-    @* Eventually were gonna want to implement something if we have more then 1 character *@
-
     @foreach (var character in characters)
     {
+        
         <span class="name">@character.FirstName @character.LastName</span>
+        <button @onclick="@(() => LaunchCharacter(character))">Connect</button>
     }
 </root>
 
 @code
 {
     private List<PlayerData> characters = new();
+    private PlayerData selectedCharacter {get; set;}
+    public PlayerInfo playerInfo {get; set;}
+
     
     protected override void OnAwake()
     {  
         // Load the players characters
-        characters = PlayerData.Load(Game.SteamId);
+      characters = PlayerData.Load(Game.SteamId);
     }
+
+    public void LaunchCharacter(PlayerData character)
+    {
+        PlayerData.SelectedCharacter = character;
+
+        if (character != null)
+        {
+            Log.Info($"Launched {character.FirstName} {character.LastName}");
+        }
+
+
+        
+
+        Mouse.Visibility = MouseVisibility.Hidden;
+        Game.ActiveScene.LoadFromFile("scenes/main.scene");
+    }
+
 }

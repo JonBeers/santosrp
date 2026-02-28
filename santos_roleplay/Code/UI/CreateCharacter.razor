@@ -82,6 +82,7 @@
 	protected override void OnAwake()
 	{
 		Mouse.Visibility = MouseVisibility.Visible;
+		characters = PlayerData.Load(Game.SteamId);
 	}
 
 	private void SaveCharacter()
