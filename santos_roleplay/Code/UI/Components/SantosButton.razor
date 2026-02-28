@@ -5,7 +5,7 @@
 @namespace Sandbox
 
 <root>
-  <Button class="button" style="color: @Color; background-color: @ColorBg;" onclick="@OnClick">@Text</Button>
+  <Button class="button" style="color: @Color; background-color: @ColorBg;">@Text</Button>
 </root>
 
 @code
@@ -14,5 +14,4 @@
   [Property] public string Color = "white";
   [Property] public string ColorBg = "black";
 
-  [Property] public Action OnClick { get; set; }
 }

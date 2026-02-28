@@ -5,7 +5,7 @@
 
 <root>
 	
-	<div class="nav">
+	<div class="nav anim-slide-left anim-delay-5">
 		<div class="button" @ref="navIdentity">IDENTITY</div>
 		<div class="button" @ref="navAppearance">APPEARANCE</div>
 		<div class="button">SKILLS</div>
@@ -97,7 +97,7 @@
 		{
 			FirstName = FirstNameEntry.Text,
 			LastName = LastNameEntry.Text,
-			Gender = selectedGender.ToString(),
+			Gender = selectedGender,
 			Age = float.Parse(AgeEntry.Value)
 		});
 

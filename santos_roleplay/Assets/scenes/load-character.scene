@@ -97,7 +97,7 @@
       ],
       "Children": [
         {
-          "__guid": "e6ea4b2f-7176-40f3-979e-0fe5461a9801",
+          "__guid": "2a65c0b4-04a3-4922-b4a9-f927c5ed61d6",
           "__version": 2,
           "Flags": 0,
           "Name": "Clothing - tshirt",
@@ -114,7 +114,7 @@
           "Components": [
             {
               "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "cceb1687-4577-455e-8558-4a6d5e2787a4",
+              "__guid": "73801241-9102-4e58-b4e5-39e92d981c30",
               "__enabled": true,
               "Flags": 0,
               "AnimationGraph": null,
@@ -166,7 +166,7 @@
           "Children": []
         },
         {
-          "__guid": "9678a857-a4c6-4dcf-bb59-27a26a31d947",
+          "__guid": "957f463d-2bd3-4a25-9b5f-34e4548942d6",
           "__version": 2,
           "Flags": 0,
           "Name": "Clothing - loose_jeans",
@@ -183,7 +183,7 @@
           "Components": [
             {
               "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "8d4e76c3-4454-4438-b1e6-ca293f559f50",
+              "__guid": "abd174e1-c9c9-496d-bc26-b3b83b9550ce",
               "__enabled": true,
               "Flags": 0,
               "AnimationGraph": null,
@@ -241,7 +241,7 @@
       "__version": 2,
       "Flags": 0,
       "Name": "Camera",
-      "Position": "-151.7155,0,37.86113",
+      "Position": "-151.7155,0,34.04702",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "maincamera",

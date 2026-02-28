@@ -4,36 +4,18 @@
 @namespace Sandbox
 
 <root>
-	@switch (currentScreen)
-	{
-		case Screen.MainMenu:
-			<div class="menu-btns">
-				<img src="images/logo.png" alt="logo" />
-				<button @onclick="@(() => currentScreen = Screen.CreateCharacter)">Create Character</button>
-				<button @onclick="@(() => currentScreen = Screen.LoadCharacter)">Load Character</button>
-			</div>
-		break;
-
-		case Screen.CreateCharacter:
-			Game.ActiveScene.LoadFromFile("scenes/create-character.scene");
-		break;
-
-        case Screen.LoadCharacter:
-            Game.ActiveScene.LoadFromFile("scenes/load-character.scene");
-        break;
-	}
+    <div class="menu-btns">
+        <img src="images/logo.png" alt="logo" />
+        <button onclick="@(() => LoadScene("scenes/create-character.scene"))">Create Character</button>
+        <button onclick="@(() => LoadScene("scenes/load-character.scene"))">Load Character</button>
+    </div>
 </root>
 
 @code
 {
-    private Screen currentScreen = Screen.MainMenu;
-
-
-    public enum Screen
+    private void LoadScene(string scene)
     {
-        MainMenu,
-        LoadCharacter,
-        CreateCharacter,
+        Game.ActiveScene.LoadFromFile(scene);
     }
 
     protected override void OnAwake()

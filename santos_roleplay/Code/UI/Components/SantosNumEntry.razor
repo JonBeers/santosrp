@@ -29,7 +29,6 @@
     }
   }
   private string _placeholder;
-  private string _text;
 
   [Property]
   public string Placeholder
@@ -45,7 +44,6 @@
       if (firstTime && InnerNumEntry != null)
       {
           if (_placeholder != null) InnerNumEntry.Placeholder = _placeholder;
-          if (_text != null) InnerNumEntry.Text = _text;
       }
   }
 }

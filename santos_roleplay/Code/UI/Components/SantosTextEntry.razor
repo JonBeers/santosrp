@@ -32,7 +32,7 @@
     [Property]
     public string Text
     {
-        get => _text;
+        get => InnerTextEntry?.Text ?? _text;
         set { _text = value; if (InnerTextEntry != null) InnerTextEntry.Text = value; }
     }
 
