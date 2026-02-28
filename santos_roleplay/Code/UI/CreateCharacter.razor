@@ -17,17 +17,17 @@
 		{
 			case Screen.Identity:
 			<div class="identity">
-				<SantosTextEntry Title="First Name:" @ref="FirstNameEntry" />
-				<SantosTextEntry Title="Last Name:" @ref="LastNameEntry" />
-				<SantosDropDown Title="Gender" Options="@GenderOptions" @ref="GenderDropdown"/>
-				<SantosNumEntry Title="Age:" @ref="AgeEntry" />
-				<button class="next-btn" @onclick="@SaveCharacter">Next</button>
+				<SantosTextEntry Title="First Name:" Placeholder="John" @ref="FirstNameEntry" />
+				<SantosTextEntry Title="Last Name:" Placeholder="Doe" @ref="LastNameEntry" />
+				<SantosDropDown Title="Gender" Options="@GenderOptions" Value="Male" @ref="GenderDropdown"/>
+				<SantosNumEntry Title="Age:" Placeholder="100" @ref="AgeEntry" />
+				<button class="next-btn" @onclick="@SaveCharacter">Next</button> 
 			</div>
 			break;
 
 			case Screen.Appearance:
-                // For now we will just finish creating the character.
-                Game.ActiveScene.LoadFromFile("scenes/menu.scene");
+				// For now we will just finish creating the character.
+				Game.ActiveScene.LoadFromFile("scenes/menu.scene");
 			break;
 		}
 	</div>
@@ -86,13 +86,7 @@
 	}
 
 	private void SaveCharacter()
-	{
-		Log.Info( $"FirstNameEntry: {FirstNameEntry != null}" );
-    Log.Info( $"LastNameEntry: {LastNameEntry != null}" );
-    Log.Info( $"AgeEntry: {AgeEntry != null}" );
-    Log.Info( $"characters: {characters != null}" );
-    Log.Info( $"selectedGender: {selectedGender}" );
-		
+	{	
 		if (string.IsNullOrWhiteSpace(FirstNameEntry.Text) || string.IsNullOrWhiteSpace(LastNameEntry.Text) || selectedGender == null) 
 		{ 
 			Log.Info("Fill out all fields");

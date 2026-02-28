@@ -2,15 +2,15 @@ using Sandbox;
 
 public sealed class PlayerInfo : Component
 {
-	[Property, ReadOnly] public string FirstName {get; set;}
-	[Property, ReadOnly] public string LastName {get; set;}
-	[Property, ReadOnly] public float Age {get; set;}
-	[Property, ReadOnly] public string Gender {get; set;}
+	[Property, ReadOnly, Sync] public string FirstName {get; set;}
+	[Property, ReadOnly, Sync] public string LastName {get; set;}
+	[Property, ReadOnly, Sync] public float Age {get; set;}
+	[Property, ReadOnly, Sync] public string Gender {get; set;}
 
 
 	protected override void OnAwake()
 	{
-		// we should load the selected character
+		if (IsProxy) return;
 		var character = PlayerData.SelectedCharacter;
 
 		FirstName = character.FirstName;

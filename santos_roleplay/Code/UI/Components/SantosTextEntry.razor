@@ -4,8 +4,8 @@
 @namespace Sandbox
 
 <root>
-	<div class="text-entry">
-		<span>@Title</span>
+	<div class="text-entry anim-bounce-up">
+		<span class="anim-slide-left anim-delay-5">@Title</span>
 		<TextEntry 
 			@ref="InnerTextEntry"
 			class="entry"
@@ -19,19 +19,31 @@
 
     public TextEntry InnerTextEntry { get; set; }
 
+    private string _placeholder;
+    private string _text;
+
     [Property]
     public string Placeholder
     {
-        get => InnerTextEntry?.Placeholder;
-        set { if (InnerTextEntry != null) InnerTextEntry.Placeholder = value; }
+        get => _placeholder;
+        set { _placeholder = value; if (InnerTextEntry != null) InnerTextEntry.Placeholder = value; }
     }
 
     [Property]
     public string Text
     {
-        get => InnerTextEntry?.Text;
-        set { if (InnerTextEntry != null) InnerTextEntry.Text = value; }
+        get => _text;
+        set { _text = value; if (InnerTextEntry != null) InnerTextEntry.Text = value; }
     }
 
-    // Add more delegated properties as needed
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        base.OnAfterTreeRender(firstTime);
+
+        if (firstTime && InnerTextEntry != null)
+        {
+            if (_placeholder != null) InnerTextEntry.Placeholder = _placeholder;
+            if (_text != null) InnerTextEntry.Text = _text;
+        }
+    }
 }

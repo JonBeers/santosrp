@@ -5,12 +5,11 @@
 @using System;
 
 <root>
-  <div class="dropdown-entry">
-    <span>@Title</span>
+  <div class="dropdown-entry anim-bounce-in">
+    <span class="anim-slide-left anim-delay-5">@Title</span>
     <DropDown 
       @ref="DropdownEntry"
       class="dropdown"
-      
     />
   </div>
 </root>
@@ -49,12 +48,22 @@
     }
   }
 
+  private string _value; 
+
+  [Property]
+  public string Value
+  {
+      get => _value;
+      set { _value = value; if (DropdownEntry != null) DropdownEntry.Value = value; }
+  }
+
   protected override void OnAfterTreeRender(bool firstTime)
   {
     if (firstTime && DropdownEntry != null)
     {
       if (_options != null) DropdownEntry.Options = _options;
       if (_valueChanged != null) DropdownEntry.ValueChanged = _valueChanged;
+      if (_value != null) DropdownEntry.Value = _value;
     }
   }
 }

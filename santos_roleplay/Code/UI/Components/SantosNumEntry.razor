@@ -5,8 +5,8 @@
 @namespace Sandbox
 
 <root>
-	<div class="text-entry">
-		<span>@Title</span>
+	<div class="text-entry anim-bounce-up">
+		<span class="anim-slide-left anim-delay-5">@Title</span>
 		<NumberEntry 
 			@ref="InnerNumEntry"
 			class="entry"
@@ -27,5 +27,25 @@
     {
       if (InnerNumEntry != null) InnerNumEntry.Value = value;
     }
+  }
+  private string _placeholder;
+  private string _text;
+
+  [Property]
+  public string Placeholder
+  {
+      get => _placeholder;
+      set { _placeholder = value; if (InnerNumEntry != null) InnerNumEntry.Placeholder = value; }
+  }
+
+  protected override void OnAfterTreeRender(bool firstTime)
+  {
+      base.OnAfterTreeRender(firstTime);
+
+      if (firstTime && InnerNumEntry != null)
+      {
+          if (_placeholder != null) InnerNumEntry.Placeholder = _placeholder;
+          if (_text != null) InnerNumEntry.Text = _text;
+      }
   }
 }
