@@ -9,6 +9,8 @@
 		<TextEntry 
 			@ref="InnerTextEntry"
 			class="entry anim-slide-left anim-delay-5"
+            MinLength="@MinLength"
+            MaxLength="@MaxLength"
 		/>
 	</div>
 </root>
@@ -22,18 +24,32 @@
     private string _placeholder;
     private string _text;
 
-    [Property]
-    public string Placeholder
+
+    [Property] public string Placeholder
     {
         get => _placeholder;
         set { _placeholder = value; if (InnerTextEntry != null) InnerTextEntry.Placeholder = value; }
     }
 
-    [Property]
-    public string Text
+   
+    [Property] public string Text
     {
         get => InnerTextEntry?.Text ?? _text;
         set { _text = value; if (InnerTextEntry != null) InnerTextEntry.Text = value; }
+    }
+
+    private int _minLegnth;
+    [Property] public int MinLength
+    {
+        get => _minLegnth;
+        set { _minLegnth = value; if (InnerTextEntry != null) InnerTextEntry.MinLength = value; }
+    }
+
+    private int _maxLength;
+    [Property] public int MaxLength
+    {
+        get => _maxLength;
+        set { _maxLength = value; if (InnerTextEntry != null) InnerTextEntry.MaxLength = value; }
     }
 
     protected override void OnAfterTreeRender(bool firstTime)

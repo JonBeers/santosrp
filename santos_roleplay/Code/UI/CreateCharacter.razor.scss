@@ -38,6 +38,12 @@ CreateCharacter
 
 	}
 
+	.error-msg
+	{
+		margin-bottom: 2rem;
+		padding-left: 1rem;
+		color: $error;
+	}
 
 
 	.panel
@@ -59,29 +65,38 @@ CreateCharacter
 	{
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 		width: 70%;
 		font-family: Poppins;
 		// border: 1px solid blue;
 
-		.next-btn
-		{
-			padding: 1rem;
-			border-bottom: 1px solid white;
-			// border-radius: .5rem;
-			width: 100px;
-			justify-content: center;
-			cursor: pointer;
-			font-weight: 500;
-			text-transform: uppercase;
-			font-size: 18px;
+	.next-btn {
+		margin-top: 2rem;
+		padding: 1rem;
+		// border: 1px solid white;
+		border-radius: 4rem;
+		width: 75px;
+		height: 75px;
+		justify-content: center;
+		cursor: pointer;
+		background-color: transparent;
+		transition: background-color 0.3s ease-out, transform 0.15s ease-out;
 
-
-			&::hover
-			{
-				border-bottom: 1px solid $accent-color;
-			}
+		&:hover {
+			background-color: rgb(63, 216, 63);
+			border: 2px solid rgb(40, 136, 40);
+			transform: scale(1.05);
 		}
+
+		&:active {
+			transform: scale(0.95);
+		}
+		&.error {
+		background-color: rgba(220, 50, 50, 0.6);
+		border: 2px solid rgb(180, 30, 30);
+		}
+	}
+
 	}
 	
 }

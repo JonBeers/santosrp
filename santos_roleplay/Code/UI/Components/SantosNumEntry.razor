@@ -10,6 +10,8 @@
 		<NumberEntry 
 			@ref="InnerNumEntry"
 			class="entry anim-slide-left anim-delay-5"
+      MaxLength="@MaxLength"
+      MinLength="@MinLength"
 		/>
 	</div>
 </root>
@@ -28,13 +30,26 @@
       if (InnerNumEntry != null) InnerNumEntry.Value = value;
     }
   }
-  private string _placeholder;
 
-  [Property]
-  public string Placeholder
+  private string _placeholder;
+  [Property] public string Placeholder
   {
       get => _placeholder;
       set { _placeholder = value; if (InnerNumEntry != null) InnerNumEntry.Placeholder = value; }
+  }
+
+  private int _minLegnth;
+  [Property] public int MinLength
+  {
+    get => _minLegnth;
+    set { _minLegnth = value; if (InnerNumEntry != null) InnerNumEntry.MinLength = value; }
+  }
+
+  private int _maxLength;
+  [Property] public int MaxLength
+  {
+    get => _maxLength;
+    set { _maxLength = value; if (InnerNumEntry != null) InnerNumEntry.MaxLength = value; }
   }
 
   protected override void OnAfterTreeRender(bool firstTime)
