@@ -67,7 +67,7 @@
           "__guid": "fd5f8ae9-9392-4783-89e0-393708132ae9",
           "__enabled": true,
           "Flags": 0,
-          "ApplyHeightScale": true,
+          "ApplyHeightScale": false,
           "BodyTarget": {
             "_type": "component",
             "component_id": "6d8caa63-96a8-499f-9119-1035ce08cd2e",
@@ -97,7 +97,7 @@
       ],
       "Children": [
         {
-          "__guid": "03325bf4-6831-4494-b594-838f374fb0d3",
+          "__guid": "575e73fc-6c90-4440-bc44-716e194b859b",
           "__version": 2,
           "Flags": 0,
           "Name": "Clothing - tshirt",
@@ -114,7 +114,7 @@
           "Components": [
             {
               "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "ea4bbd19-cf8e-4429-8976-62dbad79a138",
+              "__guid": "280df62d-accd-4a4f-bfb7-a9b57dc50ee4",
               "__enabled": true,
               "Flags": 0,
               "AnimationGraph": null,
@@ -166,7 +166,7 @@
           "Children": []
         },
         {
-          "__guid": "3a47034b-0e09-481a-8f63-f0eee8b22317",
+          "__guid": "84dd2226-0e8b-4908-a982-3f6d80c0ad88",
           "__version": 2,
           "Flags": 0,
           "Name": "Clothing - loose_jeans",
@@ -183,7 +183,7 @@
           "Components": [
             {
               "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "c4c7502c-143d-4fa9-b720-c7425b3f5ecb",
+              "__guid": "3aefd910-08b5-4421-b1f2-e4dc5ac634e8",
               "__enabled": true,
               "Flags": 0,
               "AnimationGraph": null,
