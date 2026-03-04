@@ -54,7 +54,6 @@ CreateCharacter
 		position: relative;
 		left: 0%;
 		top: 0%;
-		// border: 1px solid red;
 		width: 40%;
 		height: 100%;
 		display: flex;
@@ -72,6 +71,7 @@ CreateCharacter
 		width: 70%;
 		font-family: Poppins;
 		// border: 1px solid blue;
+
 
 	.next-btn {
 		margin-top: 2rem;
@@ -99,6 +99,16 @@ CreateCharacter
 		border: 2px solid rgb(180, 30, 30);
 		}
 	}
+
+	}
+
+	.appearance
+	{
+		position: absolute;
+		width: 80%;
+		height: 90%;
+		display: flex;
+		flex-direction: column;
 
 	}
 	

@@ -23,7 +23,7 @@
           "__enabled": true,
           "Flags": 0,
           "AnimationGraph": null,
-          "BodyGroups": 641,
+          "BodyGroups": 681,
           "BoneMergeTarget": null,
           "CreateAttachments": false,
           "CreateBoneObjects": false,
@@ -67,23 +67,16 @@
           "__guid": "fd5f8ae9-9392-4783-89e0-393708132ae9",
           "__enabled": true,
           "Flags": 0,
-          "ApplyHeightScale": false,
+          "ApplyHeightScale": true,
           "BodyTarget": {
             "_type": "component",
             "component_id": "6d8caa63-96a8-499f-9119-1035ce08cd2e",
             "go": "fe792a4a-68de-4fbf-8d5a-8bfe2cdb45d2",
             "component_type": "SkinnedModelRenderer"
           },
-          "Clothing": [
-            {
-              "Clothing": "models/citizen_clothes/shirt/tshirt/tshirt.clothing"
-            },
-            {
-              "Clothing": "models/citizen_clothes/trousers/loosejeans/loose_jeans.clothing"
-            }
-          ],
+          "Clothing": [],
           "ManualAge": 0.480751,
-          "ManualHeight": 0.14712955,
+          "ManualHeight": 0.50691247,
           "ManualTint": 0.052217405,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -95,153 +88,14 @@
           "WorkshopItems": []
         }
       ],
-      "Children": [
-        {
-          "__guid": "575e73fc-6c90-4440-bc44-716e194b859b",
-          "__version": 2,
-          "Flags": 0,
-          "Name": "Clothing - tshirt",
-          "Position": "0,0,0",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "clothing",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkFlags": 0,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "280df62d-accd-4a4f-bfb7-a9b57dc50ee4",
-              "__enabled": true,
-              "Flags": 0,
-              "AnimationGraph": null,
-              "BodyGroups": 18446744073709551615,
-              "BoneMergeTarget": {
-                "_type": "component",
-                "component_id": "6d8caa63-96a8-499f-9119-1035ce08cd2e",
-                "go": "fe792a4a-68de-4fbf-8d5a-8bfe2cdb45d2",
-                "component_type": "SkinnedModelRenderer"
-              },
-              "CreateAttachments": false,
-              "CreateBoneObjects": false,
-              "LodOverride": null,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
-              "Materials": null,
-              "Model": "models/citizen_clothes/shirt/tshirt/models/tshirt_m_human.vmdl",
-              "Morphs": {},
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Parameters": {
-                "bools": {},
-                "ints": {},
-                "floats": {},
-                "vectors": {},
-                "rotations": {}
-              },
-              "PlaybackRate": 1,
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "RenderType": "On",
-              "Sequence": {
-                "Name": null,
-                "Looping": true,
-                "Blending": false
-              },
-              "Tint": "1,1,1,1",
-              "UseAnimGraph": true
-            }
-          ],
-          "Children": []
-        },
-        {
-          "__guid": "84dd2226-0e8b-4908-a982-3f6d80c0ad88",
-          "__version": 2,
-          "Flags": 0,
-          "Name": "Clothing - loose_jeans",
-          "Position": "0,0,0",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "clothing",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "NetworkFlags": 0,
-          "NetworkOrphaned": 0,
-          "NetworkTransmit": true,
-          "OwnerTransfer": 1,
-          "Components": [
-            {
-              "__type": "Sandbox.SkinnedModelRenderer",
-              "__guid": "3aefd910-08b5-4421-b1f2-e4dc5ac634e8",
-              "__enabled": true,
-              "Flags": 0,
-              "AnimationGraph": null,
-              "BodyGroups": 18446744073709551615,
-              "BoneMergeTarget": {
-                "_type": "component",
-                "component_id": "6d8caa63-96a8-499f-9119-1035ce08cd2e",
-                "go": "fe792a4a-68de-4fbf-8d5a-8bfe2cdb45d2",
-                "component_type": "SkinnedModelRenderer"
-              },
-              "CreateAttachments": false,
-              "CreateBoneObjects": false,
-              "LodOverride": null,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
-              "Materials": null,
-              "Model": "models/citizen_clothes/trousers/loosejeans/models/loose_jeans_m_human.vmdl",
-              "Morphs": {},
-              "OnComponentDestroy": null,
-              "OnComponentDisabled": null,
-              "OnComponentEnabled": null,
-              "OnComponentFixedUpdate": null,
-              "OnComponentStart": null,
-              "OnComponentUpdate": null,
-              "Parameters": {
-                "bools": {},
-                "ints": {},
-                "floats": {},
-                "vectors": {},
-                "rotations": {}
-              },
-              "PlaybackRate": 1,
-              "RenderOptions": {
-                "GameLayer": true,
-                "OverlayLayer": false,
-                "BloomLayer": false,
-                "AfterUILayer": false
-              },
-              "RenderType": "On",
-              "Sequence": {
-                "Name": null,
-                "Looping": true,
-                "Blending": false
-              },
-              "Tint": "1,1,1,1",
-              "UseAnimGraph": true
-            }
-          ],
-          "Children": []
-        }
-      ]
+      "Children": []
     },
     {
       "__guid": "fed24f87-161a-4970-9887-50298b612e63",
       "__version": 2,
       "Flags": 0,
       "Name": "Camera",
-      "Position": "-151.7155,0,34.048",
+      "Position": "-151.7155,0,35.08987",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "maincamera",
@@ -563,7 +417,7 @@
                 ],
                 "MaterialIndex": [
                   0,
-                  -1,
+                  0,
                   0,
                   -1,
                   -1,

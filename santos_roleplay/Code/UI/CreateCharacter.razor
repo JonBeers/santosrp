@@ -14,32 +14,33 @@
 		@switch (currentScreen)
 		{
 			case Screen.Identity:
-			<div class="identity">
+				<div class="identity">
 
-			@if ( isError )
-			{
-				@foreach ( var error in errorList )
+				@if ( isError )
 				{
-					
-					<span class="error-msg anim-slide-down anim-delay-2">@error</span>
+					@foreach ( var error in errorList )
+					{
+						
+						<span class="error-msg anim-slide-down anim-delay-2">@error</span>
+					}
 				}
-			}
 
-			<SantosTextEntry Title="First Name:" Placeholder="John" MinLength="@(2)" MaxLength="@(10)" @ref="FirstNameEntry" />
-			<SantosTextEntry Title="Last Name:" Placeholder="Doe" MinLength="@(2)" MaxLength="@(10)" @ref="LastNameEntry" />
-			<SantosDropDown Title="Gender" Options="@GenderOptions" Value="Male" ValueChanged="@OnGenderChanged" @ref="GenderDropdown"/>
-			<SantosNumEntry Title="Age:" Placeholder="100" MinLength="@(1)" MaxLength="@(3)"  @ref="AgeEntry" />
+				<SantosTextEntry Title="First Name:" Placeholder="John" MinLength="@(2)" MaxLength="@(10)" @ref="FirstNameEntry" />
+				<SantosTextEntry Title="Last Name:" Placeholder="Doe" MinLength="@(2)" MaxLength="@(10)" @ref="LastNameEntry" />
+				<SantosDropDown Title="Gender" Options="@GenderOptions" Value="Male" ValueChanged="@OnGenderChanged" @ref="GenderDropdown"/>
+				<SantosNumEntry Title="Age:" Placeholder="100" MinLength="@(1)" MaxLength="@(3)"  @ref="AgeEntry" />
 
-			<button @ref="NextButton" class="next-btn anim-slide-left anim-delay-5" @onclick="@SaveCharacter">
-				<img src="images/check-solid.png" />
-			</button>
+				<button @ref="NextButton" class="next-btn anim-slide-left anim-delay-5" @onclick="@SaveCharacter">
+					<img src="images/check-solid.png" />
+				</button>
 
-			</div>
+				</div>
 			break;
 
 			case Screen.Appearance:
-				// For now we will just finish creating the character.
-				Game.ActiveScene.LoadFromFile("scenes/menu.scene");
+				<div class="appearance anim-slide-left anim-delay-5">
+
+				</div>
 			break;
 		}
 	</div>
@@ -48,8 +49,7 @@
 
 @code
 {
-
-    private Screen currentScreen = Screen.Identity;
+    private Screen currentScreen = Screen.Identity; 
     public enum Screen
     {
         Identity,
@@ -71,12 +71,11 @@
         new Option( "Female", "female" ),
     };
 
-    private Panel navIdentity;
-    private Panel navAppearance;
-	private Panel NextButton;
-	private List<string> errorList = new();
-	private bool isError => errorList.Count > 0;
-	
+		private Panel navIdentity;
+		private Panel navAppearance;
+		private Panel NextButton;
+		private List<string> errorList = new();
+		private bool isError => errorList.Count > 0;
 
 	protected override void OnTreeBuilt()
 	{	
@@ -97,7 +96,6 @@
 	protected override void OnAwake()
 	{
 		Mouse.Visibility = MouseVisibility.Visible;
-		characters = PlayerData.Load(Game.SteamId) ?? new();
 	}
 
 	private async void SaveCharacter()
@@ -129,7 +127,9 @@
 		});
 
 		PlayerData.Save( characters, Game.SteamId );
-		currentScreen = Screen.Appearance;
+		Game.ActiveScene.LoadFromFile("scenes/menu.scene");
 	}
+
+
 
 }

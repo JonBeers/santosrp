@@ -21,9 +21,8 @@
 
 @code
 {
-  [Property] public string Title;
-
   public SliderControl InnerSliderEntry {get; set;}
+  [Property] public string Title;
   
   private float _min;
   [Property] public float Min
@@ -47,7 +46,6 @@
     }
   }
 
-
   private float _value;
   [Property] public float Value
   {
@@ -57,6 +55,26 @@
       _value = value;
       if (InnerSliderEntry != null) InnerSliderEntry.Value = value;
     }
+  }
+
+  private Action<float> _onValueChanged;
+  [Property] public Action<float> OnValueChanged
+  {
+    get => _onValueChanged;
+    set {_onValueChanged = value; if (InnerSliderEntry?.OnValueChanged != null) InnerSliderEntry.OnValueChanged = value;}
+  }
+
+  protected override void OnAfterTreeRender(bool firstTime)
+  {
+      base.OnAfterTreeRender(firstTime);
+
+      if (firstTime && InnerSliderEntry != null)
+      {
+          InnerSliderEntry.Min = _min;
+          InnerSliderEntry.Max = _max;
+          InnerSliderEntry.Value = _value;
+          InnerSliderEntry.OnValueChanged = _onValueChanged;
+      }
   }
 
 }
